@@ -1,0 +1,32 @@
+# === КЛЮЧИ ДЕАНОНИМИЗАЦИИ — НИКОГДА НЕ КОММИТИТЬ ===
+# registry.json (и любые его вариации) — это mapping маска -> реальное
+# NDA-значение. Утечка этого файла равна утечке самого NDA-контента.
+registry*.json
+*.registry.json
+*_registry.json
+
+# Папка fail-closed ручного разбора в батч-режиме — там лежат ИСХОДНЫЕ,
+# НЕЗАМАСКИРОВАННЫЕ .sql файлы as-is. Ещё более чувствительна, чем registry.
+_MANUAL_REVIEW/
+
+# Типичные выходные папки батч-маскирования (создаются локально).
+*_masked/
+masked_output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.mypy_cache/
+.pytest_cache/
+
+# Окружение / секреты
+.env
+.env.*
+
+# OS/IDE шум
+.DS_Store
+.vscode/
+.idea/
